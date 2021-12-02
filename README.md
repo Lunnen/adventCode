@@ -1,3 +1,3 @@
-# adventCode challanges in Kotlin
+# adventCode Challenges, written in Kotlin
 
 https://adventofcode.com/
