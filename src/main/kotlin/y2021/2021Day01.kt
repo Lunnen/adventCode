@@ -4,10 +4,10 @@ import java.io.File
 
 class `2021Day01` {
 
-    private val list = arrayListOf<Int>()
-    private val mainPath = "src/main/kotlin/y2021/files/"
     private val year = "2021"
     private val day = "01"
+    private val list = arrayListOf<Int>()
+    private val mainPath = "src/main/kotlin/y$year/files/"
 
     fun run() {
         loadFile()
