@@ -1,7 +1,6 @@
 package y2021
 
 import java.io.File
-import kotlin.math.pow
 
 class `2021Day03` {
 
@@ -11,9 +10,11 @@ class `2021Day03` {
     private val mainPath = "src/main/kotlin/y$year/files/"
 
     /*
+    What is the power consumption of the submarine?
     Part 1 => 4174964
+    What is the life support rating of the submarine?
     Part 2 => 4474944
-     */
+    */
 
     fun run() {
         loadFile()
@@ -43,11 +44,7 @@ class `2021Day03` {
 
         println(
             "$year-$day part #1 => " +
-                    "${
-                        binaryToDecimal(gammaRate.toString().toLong()) * binaryToDecimal(
-                            epsilonRate.toString().toLong()
-                        )
-                    } " +
+                    "${Integer.parseInt(gammaRate.toString(), 2) * Integer.parseInt(epsilonRate.toString(), 2)} " +
                     "<= Mission: Binary Diagnostic (In Binary: $gammaRate and $epsilonRate)"
         )
     }
@@ -64,8 +61,8 @@ class `2021Day03` {
 
             if (onesAtColumn.toInt() + zerosAtColumn.toInt() == 1) continue // if none left, end function
 
-            oxygenGenRating = if (onesAtColumn >= zerosAtColumn) filterAndKeepOnly(oxygenGenRating, col, 1)
-            else filterAndKeepOnly(oxygenGenRating, col, 0)
+            oxygenGenRating = if (onesAtColumn >= zerosAtColumn) filterKeepVal(oxygenGenRating, col, 1)
+            else filterKeepVal(oxygenGenRating, col, 0)
         }
 
         var scrubberRating = list.toMutableList()
@@ -76,40 +73,20 @@ class `2021Day03` {
 
             if (onesAtColumn.toInt() + zerosAtColumn.toInt() == 1) continue // if none left, end function
 
-            scrubberRating = if (zerosAtColumn <= onesAtColumn) filterAndKeepOnly(scrubberRating, col, 0)
-            else filterAndKeepOnly(scrubberRating, col, 1)
+            scrubberRating = if (zerosAtColumn <= onesAtColumn) filterKeepVal(scrubberRating, col, 0)
+            else filterKeepVal(scrubberRating, col, 1)
         }
 
         println(
-            "$year-$day part #2 => " +
-                    "${binaryToDecimal(oxygenGenRating[0].toLong()) * binaryToDecimal(scrubberRating[0].toLong())} " +
+            "$year-$day part #2 => ${Integer.parseInt(oxygenGenRating[0], 2) * Integer.parseInt(scrubberRating[0], 2)} " +
                     "<= Mission: Binary Diagnostic (life support rating)"
         )
     }
 
-    private fun filterAndKeepOnly(
-        inputList: MutableList<String>,
-        chosenColumn: Int,
-        keepThisNr: Int
-    ): MutableList<String> {
+    private fun filterKeepVal(inputList: MutableList<String>, chosenColumn: Int, keepThisNr: Int): MutableList<String> {
         return inputList.stream().filter { it[chosenColumn].digitToInt() == keepThisNr }.toList()
     }
 
     private fun timesValueExistInCol(inputList: List<String>, chosenColumn: Int, nr: Int) =
         inputList.stream().filter { it[chosenColumn].digitToInt() == nr }.count()
-
-    private fun binaryToDecimal(inputBinary: Long): Int {
-        var binaryNumber = inputBinary
-        var decimalNo = 0
-        var power = 0
-
-        while (binaryNumber > 0) {
-            val r = binaryNumber % 10
-            decimalNo = (decimalNo + r * 2.0.pow(power.toDouble())).toInt()
-            binaryNumber /= 10
-            power++
-        }
-        return decimalNo
-    }
-
 }
