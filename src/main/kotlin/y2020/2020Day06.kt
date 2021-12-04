@@ -65,9 +65,9 @@ class `2020Day06` {
             val membersAnswers = arrayListOf<String>()
             val nrOfMembers = groupMembers.size
 
-            for (letterIndex in groupMembers.indices){
+            for (index in groupMembers.indices){
                 /* add every member's answer to list */
-                groupMembers[letterIndex].forEach { membersAnswers.add(it.toString())  }
+                groupMembers[index].forEach { membersAnswers.add(it.toString())  }
             }
             /* check if every member has voted for the letter, by using a distinct forEach against the entire list */
             membersAnswers.distinct().forEach(){ answerIt ->
