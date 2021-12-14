@@ -2,12 +2,16 @@ package y2020
 
 import java.io.File
 
+private fun main() {
+    Y2020Day04().run()
+}
+
 class Y2020Day04 {
 
     private val year = "2020"
     private val day = "04"
     private val list = mutableListOf<String>()
-    private val mainPath = "src/main/kotlin/y$year/files/"
+    val mainPath = "src/main/resources/y$year/"
 
     fun run() {
         loadFile()

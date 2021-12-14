@@ -2,12 +2,16 @@ package y2021
 
 import java.io.File
 
+private fun main() {
+    Y2021Day03().run()
+}
+
 class Y2021Day03 {
 
     private val year = "2021"
     private val day = "03"
     private val list = arrayListOf<String>()
-    private val mainPath = "src/main/kotlin/y$year/files/"
+    val mainPath = "src/main/resources/y$year/"
 
     /*
     What is the power consumption of the submarine?

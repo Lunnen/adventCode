@@ -3,12 +3,16 @@ package y2020
 import java.io.File
 import java.util.*
 
+private fun main() {
+    Y2020Day06().run()
+}
+
 class Y2020Day06 {
 
     private val year = "2020"
     private val day = "06"
     private val list = arrayListOf<String>()
-    private val mainPath = "src/main/kotlin/y$year/files/"
+    val mainPath = "src/main/resources/y$year/"
 
     private val groups: HashMap<Int, String> = hashMapOf()
 

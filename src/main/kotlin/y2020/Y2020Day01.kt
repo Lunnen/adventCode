@@ -2,14 +2,17 @@ package y2020
 
 import java.io.File
 
+private fun main() {
+    Y2020Day01().run()
+}
+
 class Y2020Day01 {
 
-    private val list = arrayListOf<Int>()
-    private val mainPath = "src/main/kotlin/y2020/files/"
-    private val year = "2020"
-    private val day = "01"
+    private val year = "2020"; private val day = "01"
+    val mainPath = "src/main/resources/y$year/"
 
-    val nrToMatchTogether = 2020;
+    private val list = arrayListOf<Int>()
+    private val nrToMatchTogether = 2020;
 
     fun run() {
         loadFile()

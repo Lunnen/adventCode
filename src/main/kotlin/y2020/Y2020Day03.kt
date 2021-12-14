@@ -2,12 +2,16 @@ package y2020
 
 import java.io.File
 
+private fun main() {
+    Y2020Day03().run()
+}
+
 class Y2020Day03 {
 
+    private val year = "2020"; private val day = "03"
+    val mainPath = "src/main/resources/y$year/"
+
     private val list = mutableListOf<String>()
-    private val mainPath = "src/main/kotlin/y2020/files/"
-    private val year = "2020"
-    private val day = "03"
 
     fun run() {
         loadFile()
@@ -31,6 +35,8 @@ class Y2020Day03 {
         }
 
         println("$year-$day part #1 result => encountered $counter trees")
+
+
     }
 
     private fun part2() {
