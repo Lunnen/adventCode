@@ -6,15 +6,12 @@ fun main() {
     Y2019Day02().run()
 }
 
-
 class Y2019Day02 {
 
-    val year = "2019";
-    val day = "02"
-    val mainPath = "src/main/resources/y$year/"
+    val year = "2019"; val day = "02"
+    private val filePath = "src/main/resources/y$year/${year}day$day.txt"
 
-
-    val list = File(mainPath + year + "day" + day + ".txt").useLines { it.toMutableList() }
+    val list = File(filePath).useLines { it.toMutableList() }
 
     fun run() {
         println(partOne()) // Answer: 6_568_671
