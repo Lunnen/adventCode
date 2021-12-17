@@ -32,7 +32,7 @@ class Y2021Day04 {
         File(mainPath + year + "day" + day + ".txt").forEachLine {
             list.add(it)
         }
-        draws = list[0].split(",") as ArrayList<String>
+        draws = list.first().split(",") as ArrayList<String>
 
         /* Draws and Boards in different lists */
         val eachBoard: ArrayList<String> = arrayListOf()

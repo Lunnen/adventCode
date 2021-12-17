@@ -49,8 +49,8 @@ class Y2016Day06 {
                 else map[list[y][x]] = 1
             }
             when(calcMostOrLeast){
-                "least" -> result += map.minByOrNull { it.value }.toString()[0]
-                "most" -> result += map.maxByOrNull { it.value }.toString()[0]
+                "least" -> result += map.minByOrNull { it.value }.toString().first()
+                "most" -> result += map.maxByOrNull { it.value }.toString().first()
             }
 
             map.clear()

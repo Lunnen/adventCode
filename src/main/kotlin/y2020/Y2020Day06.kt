@@ -75,7 +75,7 @@ class Y2020Day06 {
             }
             /* check if every member has voted for the letter, by using a distinct forEach against the entire list */
             membersAnswers.distinct().forEach(){ answerIt ->
-                if ( membersAnswers.stream().filter { it.toString() == answerIt  }.count().toInt() == nrOfMembers) totalScore++
+                if (membersAnswers.count { it == answerIt } == nrOfMembers) totalScore++
             }
             membersAnswers.clear()
         }
