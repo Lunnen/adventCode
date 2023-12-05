@@ -1,5 +1,5 @@
 package y2021
-
+/*
 import java.io.File
 
 private fun main() {
@@ -94,3 +94,5 @@ class Y2021Day03 {
     private fun timesValueExistInCol(inputList: List<String>, chosenColumn: Int, nr: Int) =
         inputList.stream().filter { it[chosenColumn].digitToInt() == nr }.count()
 }
+
+ */
