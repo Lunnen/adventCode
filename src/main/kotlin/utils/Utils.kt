@@ -4,18 +4,12 @@ import java.io.File
 
 class Utils {
     companion object {
-        inline fun <reified T : Any> loadFile(
-            year: String,
-            day: String
-        ): List<T> {
+        fun loadFile(year: String, day: String): List<String> {
             val mainPath = "src/main/resources/y$year/"
-            val list = mutableListOf<T>()
+            val list = mutableListOf<String>()
 
             File(mainPath + "day$day.txt").forEachLine {
-                list.add(when (T::class) {
-                    String::class -> it as T
-                    else -> throw IllegalArgumentException("Unsupported type")
-                })
+                list.add(it)
             }
 
             return list

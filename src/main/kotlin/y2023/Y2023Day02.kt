@@ -9,7 +9,7 @@ private fun main() {
 
 class Y2023Day02 {
 
-    private val list = Utils.loadFile<String>("2023", "02")
+    private val list = Utils.loadFile("2023", "02")
 
     fun gameNeeds (gameSets:  List<String>): List<HashMap<String, Int>> {
         var gameSetNeeds = listOf( hashMapOf<String, Int>())
@@ -99,15 +99,10 @@ class Y2023Day02 {
             return  minimumNeeds
         }
 
-        var totalScore = 0
-
-        list.forEach { game ->
-            val gameAndContentDivided = game.split(':')
-            val gameSets = gameAndContentDivided.last().split(";")
-
+        val totalScore = list.sumOf { game ->
+            val gameSets = game.substringAfterLast(':').split(";")
             val least = leastNeededAvailabilityOfGameSet(gameNeeds(gameSets))
-
-            totalScore += least.values.reduce { sum, element -> sum * element }
+            least.values.reduce { sum, element -> sum * element }
         }
 
         println("Total score is $totalScore")

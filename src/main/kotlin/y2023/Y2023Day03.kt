@@ -10,7 +10,7 @@ private fun main() {
 
 class Y2023Day03 {
 
-    private val list = Utils.loadFile<String>("2023", "03")
+    private val list = Utils.loadFile("2023", "03")
 
     fun part1() {
 
