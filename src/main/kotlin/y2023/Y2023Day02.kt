@@ -14,7 +14,7 @@ class Y2023Day02 {
     fun gameNeeds (gameSets:  List<String>): List<HashMap<String, Int>> {
         var gameSetNeeds = listOf( hashMapOf<String, Int>())
 
-        gameSets.forEachIndexed() { setIndex, set ->
+        gameSets.forEachIndexed() { _, set ->
 
             val setNeeds = hashMapOf<String, Int>()
 
